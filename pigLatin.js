@@ -1,24 +1,23 @@
 // Write your solution below:
-function pigLatin(str) {
-str = str.toLowerCase()
-const vowels = ['a', 'e', 'i', 'o', 'u'];
-let vowelsIndex = 0;
-if (vowels.includes(str[0])){
-    return str + "yay";
-} else {
-    for (let char of str){
-        if(vowels.includes(char)) {
-            vowelsIndex = str.indexOf(char);
-            break;
+function pigLatin(string){
+    let stringIntoList = string.split(" ")
+    let consonants = 'bcdfghjklmnpqrstvwxyz'
+
+    for (let i = 0; i < stringIntoList.length; i++){
+
+
+        if(consonants.includes(stringIntoList[i][0])){
+        stringIntoList[i]= stringIntoList[i].slice(1) + stringIntoList[i][0] + 'ay'
+           
+            // console.log(fixedWord)
+        } else {
+            stringIntoList[i] = stringIntoList[i] + 'yay'
+            // console.log(fixedVowelWord)
         }
     }
+    let result = stringIntoList.join(' ')
 
-    return str.slice(vowelsIndex) + str.slice(0, vowelsIndex) + "ay";
+    return result
 }
 
-}
-    
-console.log('apple') 
-    
-
-
+console.log(pigLatin('break this string into pieces'))
